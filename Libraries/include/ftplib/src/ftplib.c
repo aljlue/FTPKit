@@ -97,9 +97,6 @@ struct NetBuf {
     char response[RESPONSE_BUFSIZ];
 };
 
-static char *version =
-    "ftplib Release 4.0 07-Jun-2013, copyright 1996-2003, 2013 Thomas Pfau";
-
 GLOBALDEF int ftplib_debug = 3;
 
 #if defined(NEED_STRDUP)
@@ -388,7 +385,7 @@ static int readline(char *buf, int max, netbuf *ctl)
             x = (max >= ctl->cavail) ? ctl->cavail : max-1;
             end = memccpy(bp,ctl->cget,'\n',x);
             if (end != NULL)
-                x = end - bp;
+                x = (int)(end - bp);
             retval += x;
             bp += x;
             *bp = '\0';
@@ -1436,7 +1433,7 @@ static int FtpXfer(const char *localfile, const char *path,
     dbuf = malloc(FTPLIB_BUFSIZ);
     if (typ == FTPLIB_FILE_WRITE)
     {
-        while ((l = fread(dbuf, 1, FTPLIB_BUFSIZ, local)) > 0)
+        while ((l = (int)fread(dbuf, 1, FTPLIB_BUFSIZ, local)) > 0)
         {
             if ((c = FtpWrite(dbuf, l, nData)) < l)
             {

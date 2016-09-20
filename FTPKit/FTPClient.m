@@ -8,7 +8,7 @@
 @property (nonatomic, strong) FTPCredentials* credentials;
 
 /** Queue used to enforce requests to process in synchronous order. */
-@property (nonatomic, strong) dispatch_queue_t queue;
+@property (nonatomic) dispatch_queue_t queue;
 
 /** The last error encountered. */
 @property (nonatomic, strong) NSError *lastError;

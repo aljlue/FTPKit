@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/omniprojects/FTPKit'
   s.author   = { 'Omni Projects Inc.' => 'dev@beomni.com' }
 
-  s.source   = { :git => 'https://github.com/omniprojects/FTPKit.git', :tag => '1.3.6' }
+  s.source   = { :git => 'https://github.com/aljlue/FTPKit.git', :tag => '1.3.6' }
   s.description = 'FTP Transfer Library'
 
   s.source_files = 'FTPKit/**/*.{h,m,pch}', 'Libraries/**/ftplib.{c,h}'
